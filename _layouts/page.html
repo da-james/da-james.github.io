@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/konpa/devicon@df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 <html lang="en">
   {% include head.html %}
   <body>
     {% include nav.html %}
 
     <!-- Same id the splash hero uses, so app.js finds it and draws particles.
-         The .page-hero class shrinks it; see _sass/_page.scss. -->
+         The .page-hero class shrinks it to a banner; see _sass/_page.scss.
+         The nav bar (above) is layered over the top of this banner. -->
     <header id="particles-js" class="page-hero">
       <div class="page-hero__text">
         <h1>{{ page.title }}</h1>

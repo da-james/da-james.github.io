@@ -14,3 +14,11 @@ exclude: ['package.json', 'src' , 'node_modules']
 
 sass:
   style: compressed
+
+# Everything under pages/ uses the subpage layout by default, so a new page
+# only needs a title and a permalink in its front matter.
+defaults:
+  - scope:
+      path: "pages"
+    values:
+      layout: page

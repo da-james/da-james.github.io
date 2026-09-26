@@ -3,13 +3,20 @@
 // min-height 100vh on that id, and an id beats a class, so the override has
 // to match its specificity.
 
+// Banner size. 20vh is about 1/5 of the screen (use 10vh for ~1/10).
+// The top padding reserves room for the nav bar, which is layered over the
+// banner, so the title can never slide under it; the banner grows if needed.
+$banner-height: 20vh;
+$banner-nav-space: 4.75rem;         // nav is one row
+$banner-nav-space-narrow: 6.5rem;   // nav wraps to two rows on phones
+
 #particles-js.page-hero {
   position: relative;          // contains the canvas and the title
   display: flex;
-  align-items: flex-end;
-  min-height: 0;               // cancels the 100vh from _header.scss
-  height: 40vh;
-  padding: 0 2rem 2.5rem;
+  align-items: flex-end;       // title sits at the bottom, under the nav
+  min-height: $banner-height;  // replaces the 100vh from _header.scss
+  box-sizing: border-box;
+  padding: $banner-nav-space 2rem 1.25rem;
   background-attachment: scroll;
   overflow: hidden;
 
@@ -17,33 +24,53 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 100% !important;   // cancels the 100vh !important from _header.scss
     width: 100%;
+    height: 100% !important;   // cancels the 100vh !important from _header.scss
+  }
+
+  @media (max-width: 600px) {
+    padding: $banner-nav-space-narrow 1rem 1rem;
   }
 }
 
 .page-hero__text {
   position: relative;          // sits above the canvas
   z-index: 1;
-  max-width: 44rem;
+  max-width: 44rem;            // lines up with .page-content below
   width: 100%;
   margin: 0 auto;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 
-  h1 { margin: 0; font-size: 40px; line-height: 1.1; }
-  p  { margin: 0.5rem 0 0; opacity: 0.85; }
+  h1 {
+    margin: 0;                 // cancels the h1 spacing and color in _base.scss
+    padding: 0;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.15;
+  }
+  p {
+    margin: 0.35rem 0 0;
+    font-size: 15px;
+    opacity: 0.8;
+  }
 
   @media only screen and (min-width: $cut) {
-    h1 { font-size: 56px; }
+    h1 { font-size: 40px; }
+    p  { font-size: 17px; }
   }
 }
 
 .page-content {
   max-width: 44rem;            // keeps lines under ~80 characters
   margin: 0 auto;
-  padding: 3rem 2rem 4rem;
+  padding: 1rem 2rem 4rem;
+
+  @media (max-width: 600px) { padding: 0.5rem 1rem 3rem; }
   line-height: 1.65;
+
+  > :first-child { margin-top: 1.5rem; }
 
   img { max-width: 100%; height: auto; }
 

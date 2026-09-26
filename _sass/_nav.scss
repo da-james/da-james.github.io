@@ -1,11 +1,13 @@
-// Nav bar layered over the particle hero, on the splash page and subpages.
+// Nav bar. It has no background of its own: it is positioned over the top of
+// the particle hero (splash page) or banner (subpages), so the particles show
+// through and the two read as one block.
 
 .site-nav {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;                  // .header in _header.scss uses z-index 1
+  z-index: 2;                  // above the particle canvas and .header (z 1)
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -13,16 +15,21 @@
   gap: 0.5rem 1.5rem;
   padding: 1.25rem 2rem;
   font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff;
 
   a {
-    color: rgba(255, 255, 255, 0.8);
+    color: #fff;
     text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
   }
 
   a:hover,
   a:focus-visible,
   a.is-active {
-    color: #fff;
+    opacity: 1;
   }
 
   a:focus-visible {
@@ -31,23 +38,31 @@
   }
 }
 
-.site-nav__brand { font-weight: 600; }
+.site-nav__brand {
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
 
 .site-nav__links {
-  display: flex;
+  display: flex;               // horizontal row
   flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 0;
+  gap: 1.75rem;
+  margin: 0;                   // cancels the ul margin/padding from _base.scss
   padding: 0;
   list-style: none;
 
-  a.is-active {
-    border-bottom: 2px solid currentColor;
+  a {
+    display: inline-block;
     padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+  }
+
+  a.is-active {
+    border-bottom-color: #fff;
   }
 }
 
 @media (max-width: 600px) {
   .site-nav { padding: 1rem; }
-  .site-nav__links { gap: 1rem; }
+  .site-nav__links { gap: 1.1rem; }
 }
