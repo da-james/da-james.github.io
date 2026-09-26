@@ -1,3 +1,8 @@
+---
+# The empty front matter above is required. It is what tells Jekyll to
+# compile this file. Jekyll reads partials from _sass/ automatically.
+---
+
 @import "lib/normalize";
 @import "lib/fontawesome";
 @import "lib/devicon";
@@ -8,3 +13,5 @@
 @import 'header';
 @import 'about';
 @import 'footer';
+@import 'nav';
+@import 'page';

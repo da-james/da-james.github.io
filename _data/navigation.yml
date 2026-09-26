@@ -1,0 +1,7 @@
+# One entry per tab. The order here is the order in the nav bar.
+- title: Home
+  url: /
+- title: Research
+  url: /research/
+- title: DFT Notes
+  url: /dft/

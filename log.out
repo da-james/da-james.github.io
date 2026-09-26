@@ -1,0 +1,7 @@
+Configuration file: /home/djames/Documents/projects/da-james.github.io/_config.yml
+            Source: /home/djames/Documents/projects/da-james.github.io
+       Destination: /home/djames/Documents/projects/da-james.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+jekyll 3.10.0 | Error:  File to import not found or unreadable: nav.
+Load path: /home/djames/Documents/projects/da-james.github.io/_sass on line 11

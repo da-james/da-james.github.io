@@ -1,0 +1,16 @@
+<nav class="site-nav" aria-label="Main">
+  <a class="site-nav__brand" href="{{ '/' | relative_url }}">{{ site.username }}</a>
+  <ul class="site-nav__links">
+    {% for item in site.data.navigation %}
+      {% assign active = false %}
+      {% if page.url == item.url %}
+        {% assign active = true %}
+      {% elsif item.url != '/' and page.url contains item.url %}
+        {% assign active = true %}
+      {% endif %}
+      <li>
+        <a href="{{ item.url | relative_url }}"{% if active %} class="is-active" aria-current="page"{% endif %}>{{ item.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

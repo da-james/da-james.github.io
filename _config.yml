@@ -11,3 +11,6 @@ user_title: Graduate Student Researcher
 email: davidabraham@ucla.edu
 
 exclude: ['package.json', 'src' , 'node_modules']
+
+sass:
+  style: compressed

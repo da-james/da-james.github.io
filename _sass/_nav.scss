@@ -1,0 +1,53 @@
+// Nav bar layered over the particle hero, on the splash page and subpages.
+
+.site-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;                  // .header in _header.scss uses z-index 1
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding: 1.25rem 2rem;
+  font-family: 'Montserrat', sans-serif;
+
+  a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus-visible,
+  a.is-active {
+    color: #fff;
+  }
+
+  a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+}
+
+.site-nav__brand { font-weight: 600; }
+
+.site-nav__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a.is-active {
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 2px;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-nav { padding: 1rem; }
+  .site-nav__links { gap: 1rem; }
+}

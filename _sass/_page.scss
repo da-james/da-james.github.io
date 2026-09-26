@@ -1,0 +1,55 @@
+// Subpage layout (layout: page).
+// The #particles-js selector is repeated here on purpose: _header.scss sets
+// min-height 100vh on that id, and an id beats a class, so the override has
+// to match its specificity.
+
+#particles-js.page-hero {
+  position: relative;          // contains the canvas and the title
+  display: flex;
+  align-items: flex-end;
+  min-height: 0;               // cancels the 100vh from _header.scss
+  height: 40vh;
+  padding: 0 2rem 2.5rem;
+  background-attachment: scroll;
+  overflow: hidden;
+
+  .particles-js-canvas-el {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100% !important;   // cancels the 100vh !important from _header.scss
+    width: 100%;
+  }
+}
+
+.page-hero__text {
+  position: relative;          // sits above the canvas
+  z-index: 1;
+  max-width: 44rem;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+
+  h1 { margin: 0; font-size: 40px; line-height: 1.1; }
+  p  { margin: 0.5rem 0 0; opacity: 0.85; }
+
+  @media only screen and (min-width: $cut) {
+    h1 { font-size: 56px; }
+  }
+}
+
+.page-content {
+  max-width: 44rem;            // keeps lines under ~80 characters
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+  line-height: 1.65;
+
+  img { max-width: 100%; height: auto; }
+
+  pre,
+  mjx-container[display="true"] {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
